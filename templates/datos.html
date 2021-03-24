@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% load static%}
+        <link rel="stylesheet" href="{% static 'styles.css'%}">
+    </head>
+    <body>
+        <h1>Reporte de jugadores</h1>
+        <ul>
+            {% for j in lista_jugadores%}
+            <li>El jugador {{j.nombre}} ha jugado {{j.minutos_jugados}} minutos</li>
+            {%endfor%}
+        </ul>
+    </body>
+</html>
