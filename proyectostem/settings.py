@@ -21,7 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fjgn_58*l9-jc*d#&$#@fnvdk22-b+)fp39089!tg!^lpx_3mb'
+with open(BASE_DIR / 'SECRET_KEY') as f:
+     SECRET_KEY = f.read().strip()
+
+
+#SECRET_KEY = 'fjgn_58*l9-jc*d#&$#@fnvdk22-b+)fp39089!tg!^lpx_3mb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,8 +81,12 @@ WSGI_APPLICATION = 'proyectostem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'STEM',
+        'USER': 'admin',
+        'PASSWORD': 'ragnar',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
